@@ -1,4 +1,12 @@
 #!/usr/bin/env python3
+
+import sys
+from pathlib import Path
+
+# Add src to Python path
+project_root = Path(__file__).parent.parent.parent
+sys.path.insert(0, str(project_root / "src"))
+
 """
 Analyze the sparsity of the most recent SAE training
 """

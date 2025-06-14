@@ -1,9 +1,17 @@
 #!/usr/bin/env python3
+
+import sys
+from pathlib import Path
+
+# Add src to Python path
+project_root = Path(__file__).parent.parent.parent
+sys.path.insert(0, str(project_root / "src"))
+
 """
 Fix running training records that should be completed
 """
 
-from db_utils import get_db, TrainingRun
+from core.db_utils import get_db, TrainingRun
 from datetime import datetime
 import uuid
 
@@ -27,7 +35,7 @@ def fix_running_records():
             print(f"   Layer: {run.layer_name}")
             
             # Check if this run has features (indicating it completed)
-            from db_utils import DiscoveredFeature
+            from core.db_utils import DiscoveredFeature
             feature_count = db.query(DiscoveredFeature).filter(
                 DiscoveredFeature.training_run_id == run.id
             ).count()

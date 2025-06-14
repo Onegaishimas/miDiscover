@@ -1,9 +1,17 @@
 #!/usr/bin/env python3
+
+import sys
+from pathlib import Path
+
+# Add src to Python path
+project_root = Path(__file__).parent.parent.parent
+sys.path.insert(0, str(project_root / "src"))
+
 """
 Fix sparsity display issues in the database
 """
 
-from db_utils import get_db, TrainingRun
+from core.db_utils import get_db, TrainingRun
 
 def fix_sparsity_values():
     """Fix sparsity values that are showing as percentages instead of decimals"""

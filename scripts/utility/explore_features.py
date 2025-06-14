@@ -1,9 +1,17 @@
 #!/usr/bin/env python3
+
+import sys
+from pathlib import Path
+
+# Add src to Python path
+project_root = Path(__file__).parent.parent.parent
+sys.path.insert(0, str(project_root / "src"))
+
 """
 Working script to explore features stored in the database
 """
 
-from db_utils import get_db, TrainingRun, DiscoveredFeature
+from core.db_utils import get_db, TrainingRun, DiscoveredFeature
 import argparse
 import json
 

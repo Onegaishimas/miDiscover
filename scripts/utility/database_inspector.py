@@ -1,4 +1,12 @@
 #!/usr/bin/env python3
+
+import sys
+from pathlib import Path
+
+# Add src to Python path
+project_root = Path(__file__).parent.parent.parent
+sys.path.insert(0, str(project_root / "src"))
+
 """
 Database Inspector and Status Fixer for MechInterp Studio Discovery Module
 """
@@ -8,7 +16,7 @@ import uuid
 from datetime import datetime
 import json
 sys.path.append('.')
-from db_utils import get_db_connection
+from core.db_utils import get_db_connection
 
 def inspect_database_schema():
     """Show complete database schema and structure"""
